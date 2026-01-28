@@ -1,0 +1,47 @@
+---
+
+- name: Deploy static website to web servers
+
+  hosts: webservers
+
+  become: yes
+ 
+  vars:
+
+    website_src: "{{ playbook_dir }}/../website"
+ 
+  tasks:
+
+    - name: Install Apache2
+
+      ansible.builtin.apt:
+
+        name: apache2
+
+        state: present
+
+        update_cache: yes
+ 
+    - name: Copy website files
+
+      ansible.builtin.copy:
+
+        src: "{{ website_src }}/"
+
+        dest: /var/www/html/
+
+        owner: www-data
+
+        group: www-data
+
+        mode: '0644'
+ 
+    - name: Restart Apache2
+
+      ansible.builtin.service:
+
+        name: apache2
+
+        state: restarted
+
+ 
