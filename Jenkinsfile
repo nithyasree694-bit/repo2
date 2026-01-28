@@ -15,7 +15,7 @@ pipeline {
                 dir('ansible') {
                     git branch: 'main',
                         credentialsId: 'git-id',
-                        url: 'https://github.com/Suryaj34/doms-ansible.git'
+                        url: 'https://github.com/nithyasree694-bit/Ansible-Repo.git'
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline {
                 dir('website') {
                     git branch: 'main',
                         credentialsId: 'git-id',
-                        url: 'https://github.com/Suryaj34/doms-website.git'
+                        url: 'https://github.com/nithyasree694-bit/Website-Repo.git'
                 }
             }
         }
